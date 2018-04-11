@@ -10,16 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var myDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func changeDatePicker(_ sender: UIDatePicker) {
+        print("Change Date Piker")
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM--dd HH:mm:ss a EE"
+        timeLabel.text = formatter.string(from: myDatePicker.date)
     }
-
+    
 
 }
 
